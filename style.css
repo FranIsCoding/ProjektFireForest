@@ -1,0 +1,16 @@
+.vertex {
+    width: 50px;
+    height: 50px;
+    background-color: lightblue;
+    border-radius: 50%; /* Esto hace que el div sea un círculo */
+    text-align: center;
+    line-height: 50px; /* Centra el texto en el círculo */
+    font-size: 20px;
+    position: absolute; /* Para poder colocar el vértice en coordenadas específicas */
+  }
+
+.line{
+    height: 2px;
+    background-color: black;
+    position: absolute;
+}
