@@ -6,7 +6,7 @@ class Vertex {
     this.conections = [];
     this.color = 'green';
     this.divElement = null;
-    this.windVector = windVector;
+    this.windVector = 360 - windVector;
     this.angleOfIgnition = angleOfIgnition;
   }
 
@@ -111,8 +111,8 @@ function generateRandomVertex(id, vertices, minDistance = 35, windVector = [0,0]
   let validPosition = false;
 
   while (!validPosition) {
-    x = Math.floor(Math.random() * 1100) + 100;
-    y = Math.floor(Math.random() * 450) + 150;
+    x = Math.floor(Math.random() * 1200) + 100;
+    y = Math.floor(Math.random() * 425) + 175;
     validPosition = vertices.every(vertex => {
       const dx = vertex.x - x;
       const dy = vertex.y - y;
@@ -140,7 +140,7 @@ function generateRandomConnections(vertices) {
 }
 
 const forestDiv = document.getElementById('forestDiv');
-const numberOfVertices = 150;
+const numberOfVertices = 160;
 const vertices = [];
 
 for (let i = 0; i < numberOfVertices; i++) {
@@ -168,19 +168,14 @@ function updateWindandAngle(newWindVector = [0,0],newAngle = 10) {
 
 const form = document.getElementById('dataUpdate');
 
-// Agregar el manejador del evento 'submit' al formulario
 form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Evitar que el formulario se recargue al enviarlo
+  event.preventDefault();
+  const windX = parseFloat(document.getElementById('velWind').value);
+  const windY = 360 - parseFloat(document.getElementById('angWind').value);
+  const angle = parseFloat(document.getElementById('angRange').value);
 
-  // Obtener los valores de los campos de entrada
-  const windX = parseFloat(document.getElementById('velWind').value);  // Componente X del viento
-  const windY = parseFloat(document.getElementById('angWind').value);  // Componente Y del viento
-  const angle = parseFloat(document.getElementById('angRange').value);  // Ángulo de Ignición
-
-  // Crear el vector del viento
   const newWindVector = [windX, windY];
 
-  // Llamar a la función updateWindandAngle con los nuevos valores
   updateWindandAngle(newWindVector, angle);
 });
 

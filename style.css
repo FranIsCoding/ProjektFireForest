@@ -20,7 +20,7 @@ form {
   display: flex;
 }
 
-label, input, button{
+label, input, button, h4{
   display: inline-block;
   display: flex;
   margin-right: 10px;
