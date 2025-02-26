@@ -14,3 +14,14 @@
     background-color: black;
     position: absolute;
 }
+
+form {
+  text-align: center;
+  display: flex;
+}
+
+label, input, button{
+  display: inline-block;
+  display: flex;
+  margin-right: 10px;
+}
